@@ -1,1 +1,12 @@
 <h1>helloworld</h1>
+<div>
+    <%= form_with url: '/home/post', method: 'post' do |form| %>
+        <div>
+            <%= form.text_field :text, value: @text, placeholder: "helloworld" %>
+        </div>
+        <div>
+            <%= form.submit "post" %>
+        </div>
+    <% end %>
+    <div><%= @text %></div>
+</div>
