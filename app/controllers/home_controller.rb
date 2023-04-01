@@ -1,7 +1,8 @@
 require 'extract'
 
 class HomeController < ApplicationController
-    before_action :set_text, only: [:index, :new]
+    before_action :set_result, only: [:index]
+    before_action :set_text, only: [:new]
 
     def index
     end
@@ -22,7 +23,15 @@ class HomeController < ApplicationController
         @text = home_params[:text]
     end
 
+    def set_result
+        @result = extract(home_params[:text])
+    end
+
     def home_params
         params.permit(:text)
+    end
+
+    def extract(text)
+        Extract.new.extract(text)
     end
 end
