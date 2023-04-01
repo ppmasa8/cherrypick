@@ -1,11 +1,11 @@
 <h1>helloworld</h1>
 <div>
-    <%= form_with url: '/home/post', method: 'post' do |form| %>
+    <%= form_with url: '/home/new', method: 'post' do |form| %>
         <div>
             <%= form.text_field :text, value: @text, placeholder: "helloworld" %>
         </div>
         <div>
-            <%= form.submit "post" %>
+            <%= form.submit "submit" %>
         </div>
     <% end %>
     <div><%= @text %></div>
