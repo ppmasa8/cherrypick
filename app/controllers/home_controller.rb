@@ -1,4 +1,4 @@
-require 'extract'
+require 'keyword_extractor'
 
 class HomeController < ApplicationController
     before_action :set_result, only: [:index]
@@ -24,14 +24,14 @@ class HomeController < ApplicationController
     end
 
     def set_result
-        @result = extract(home_params[:text])
+        @result = extract_keywords_from_text(home_params[:text])
     end
 
     def home_params
         params.permit(:text)
     end
 
-    def extract(text)
-        Extract.new.extract(text)
+    def extract_keywords_from_text(text)
+        KeywordExtractor.new.extract_keywords(text)
     end
 end
