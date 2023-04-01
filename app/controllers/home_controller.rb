@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     end
 
     def new
-        if @text.nil?
+        if @text == ""
             flash[:alert] = "Please input text."
             render("home/index") and return
         end
@@ -24,6 +24,7 @@ class HomeController < ApplicationController
     end
 
     def set_result
+        return if home_params[:text] == ""
         @result = extract_keywords_from_text(home_params[:text])
     end
 
