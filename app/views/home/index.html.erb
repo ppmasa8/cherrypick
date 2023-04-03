@@ -1,15 +1,22 @@
-<div>
+<div class="text-explain">
     <p>日本語で書かれたテキストをstable diffusionなどが理解しやすいプロンプトに変換できます。</p>
 </div>
 
-<div>
+<div class="container">
     <%= form_with url: '/home/new', method: 'post' do |form| %>
-        <div>
+        <div class="form-text-field">
             <%= form.text_field :text, value: @text, placeholder: "醜いアヒルの子" %>
         </div>
-        <div>
+        <div class="form-text-submit">
             <%= form.submit "submit" %>
         </div>
     <% end %>
-    <div><%= @result %></div>
+    <div class="result-text"><%= @result %></div>
 </div>
+
+<footer>
+    <div class="footer">
+        <p>もし不具合等がありましたら、以下のメールにてお知らせください。</p>
+        <p><a href="mailto:fakerlol237@gmail.com">emails</a></p>
+    </div>
+</footer>
