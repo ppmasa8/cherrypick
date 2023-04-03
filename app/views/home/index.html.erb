@@ -1,7 +1,11 @@
 <div>
+    <p>日本語で書かれたテキストをstable diffusionなどが理解しやすいプロンプトに変換できます。</p>
+</div>
+
+<div>
     <%= form_with url: '/home/new', method: 'post' do |form| %>
         <div>
-            <%= form.text_field :text, value: @text, placeholder: "helloworld" %>
+            <%= form.text_field :text, value: @text, placeholder: "醜いアヒルの子" %>
         </div>
         <div>
             <%= form.submit "submit" %>
