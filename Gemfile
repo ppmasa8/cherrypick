@@ -52,7 +52,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Can't use this gem because it's not to use huge memories.
-# gem "suika"
+gem "suika"
 
 gem "deepl-rb"
 
