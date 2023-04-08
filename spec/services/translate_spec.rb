@@ -13,5 +13,11 @@ RSpec.describe Translate do
             source_lang, translated_text = Translate.new.deepl_translate(text)
             expect(translated_text).to eq('Sky, freedom, bamboo shoots, cold, wide')
         end
+
+        it 'when the text is empty, returns the empty string' do
+            text = ''
+            source_lang, translated_text = Translate.new.deepl_translate(text)
+            expect(translated_text).to eq('')
+        end
     end
 end
