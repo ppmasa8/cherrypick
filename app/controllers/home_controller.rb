@@ -35,6 +35,7 @@ class HomeController < ApplicationController
     end
 
     def extract_keywords_from_text(text)
-        KeywordExtractor.new.extract_keywords(text)
+        res = KeywordExtractor.new.post(text)
+        KeywordExtractor.new.extract_keywords_from_response(res)
     end
 end
