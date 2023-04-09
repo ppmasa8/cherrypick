@@ -20,22 +20,24 @@ class HomeController < ApplicationController
 
     private
 
+    def home_params
+        params.permit(:text)
+    end
+
     def set_text
         @text = home_params[:text]
     end
 
     def set_result
         return if home_params[:text].nil? || home_params[:text] == ""
-        ex = extract_keywords_from_text(home_params[:text])
-        @result = Translate.new.deepl_translate(ex.join)[1]
-    end
 
-    def home_params
-        params.permit(:text)
+        keywords = extract_keywords_from_text(home_params[:text])
+        @result = Translate.new.deepl_translate(keywords.join)[1]
+        flash[:notice] = 'Text was successfully updated.'
     end
 
     def extract_keywords_from_text(text)
-        res = KeywordExtractor.new.post(text)
-        KeywordExtractor.new.extract_keywords_from_response(res)
+        response = KeywordExtractor.new.post(text)
+        KeywordExtractor.new.extract_keywords_from_response(response)
     end
 end
